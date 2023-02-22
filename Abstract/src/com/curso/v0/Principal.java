@@ -1,4 +1,4 @@
-package com.curso.v1;
+package com.curso.v0;
 
 import java.util.Random;
 
@@ -6,28 +6,30 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		Animal animal = new Animal();
-		//animal.getSound();
+		//Clase ABSTRACTA
+		Animal animal;
 		
 		animal = new Gato();
-		//animal.getSound();
+		System.out.println(animal);
+		animal.getSound();
 		
 		animal = new Perro();
-		//animal.getSound();
+		System.out.println(animal);
+		animal.getSound();
 		
 		animal = new Pato();
-		//animal.getSound();
+		System.out.println(animal);
+		animal.getSound();
 		
-		Animal desconocido = getAnimal();
-		System.out.println(desconocido.getClass().getSimpleName());
-		desconocido.getSound();
+		animal = getAnimal();
+		System.out.println(animal.getClass().getSimpleName());
+		animal.getSound();
 	
 	}
 
 	private static Animal getAnimal() {
 		Animal[] animals = {new Gato(),new Perro(),new Pato(), new Oso()};
 		int entero = new Random().nextInt(animals.length);
-		System.out.println(entero);
 		return animals[entero];
 	}
 

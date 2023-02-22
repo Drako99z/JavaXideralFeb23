@@ -1,4 +1,4 @@
-package com.curso.v1;
+package com.curso.v0;
 
 //IS-A
 public class Gato extends Animal {
