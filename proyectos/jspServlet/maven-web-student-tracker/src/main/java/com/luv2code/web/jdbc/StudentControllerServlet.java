@@ -32,7 +32,15 @@ public class StudentControllerServlet extends HttpServlet {
 		// create our student db util ... and pass in the conn pool / datasource
 		try {
 			//studentDbUtil = new StudentDbUtil(dataSource);
+			
+//			StudentDbDummy.students.add(
+//					new Student(++StudentDbDummy.idContador, 
+//							"Rolas", 
+//							"ApellidoRolas", 
+//							"rolas@gmail.com"));
+			
 			studentDbUtil = new StudentDbDummy();
+			
 		}
 		catch (Exception exc) {
 			throw new ServletException(exc);

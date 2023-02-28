@@ -32,21 +32,21 @@ public class StudentDbDummy {
 		return null;
 	}
 
-	public void updateStudent(Student theStudent) throws Exception {		
+	public void updateStudent(Student elEstudiante) throws Exception {		
 		for (Student e : students) {
-			if (e.getId() == theStudent.getId()) {
-				e.setFirstName(theStudent.getFirstName());
-				e.setLastName(theStudent.getLastName());
-				e.setEmail(theStudent.getEmail());
+			if (e.getId() == elEstudiante.getId()) {
+				e.setFirstName(elEstudiante.getFirstName());
+				e.setLastName(elEstudiante.getLastName());
+				e.setEmail(elEstudiante.getEmail());
 			}
 		}
 	}
 
-//  NO FUNCIONA	
-//	public void updateStudent(Student theStudent) throws Exception {
+//	//NO FUNCIONA
+//	public void updateStudent(Student elEstudiante) throws Exception {
 //		for (Student e : students) {
-//			if (e.getId() == theStudent.getId()) {
-//				e = theStudent;
+//			if (e.getId() == elEstudiante.getId()) {
+//				e = elEstudiante;
 //			}
 //		}
 //	}
@@ -59,6 +59,6 @@ public class StudentDbDummy {
 				return;
 			}
 		}
-
+		
 	}
 }

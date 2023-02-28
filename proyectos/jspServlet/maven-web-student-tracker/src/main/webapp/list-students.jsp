@@ -37,7 +37,7 @@
 					<th>Action</th>
 				</tr>
 				
-				<c:forEach var="tempStudent" items="${STUDENT_LIST}">
+				<c:forEach var="tempStudent" items="${LISTA_ESTUDIANTES}">
 					
 					<!-- set up a link for each student -->
 					<c:url var="tempLink" value="StudentControllerServlet">
