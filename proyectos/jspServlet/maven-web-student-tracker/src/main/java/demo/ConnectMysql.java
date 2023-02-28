@@ -11,9 +11,9 @@ public class ConnectMysql {
 
 	public static void main(String[] args) {
 		System.out.println("Connecting to Mysql...");
-		ResultSet rs = null;
-		Statement stmt = null;
 		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Properties props = new Properties();
