@@ -8,8 +8,8 @@ import java.util.Properties;
 public class ADBSharedTLSConnect {
 	private static String atps_tls = "(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.mx-queretaro-1.oraclecloud.com))(connect_data=(service_name=gd8c8e5be513421_dbcourse_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))";
 	private static String db_url = "jdbc:oracle:thin:@" + atps_tls;
-	private static String dbUser = "admin";
-	private static String dbPwd = "";
+	private static String dbUser = "xideraldb";
+	private static String dbPwd = "xideral3325Db";
 
 	public static void main(String[] args) {
 		System.out.println("Connecting to ATPS over TLS...");
@@ -24,9 +24,11 @@ public class ADBSharedTLSConnect {
 			props.setProperty("oracle.jdbc.fanEnabled", "false");
 			con = DriverManager.getConnection(db_url, props);
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("select sysdate from dual");
+			rs = stmt.executeQuery("select * from xideraldb.alumno");
 			while (rs.next()) {
-				System.out.println(rs.getString(1));
+				System.out.println(rs.getString("nombre"));
+				System.out.println(rs.getString("apellido"));
+				System.out.println(rs.getInt("edad"));
 			}
 			System.out.println("Demo Over...");
 
