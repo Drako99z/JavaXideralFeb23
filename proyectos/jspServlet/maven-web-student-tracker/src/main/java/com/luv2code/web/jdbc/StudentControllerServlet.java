@@ -19,10 +19,11 @@ import javax.sql.DataSource;
 public class StudentControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private StudentDbUtil studentDbUtil;
+	//private StudentDbUtil studentDbUtil;
+	private StudentDbDummy studentDbUtil;
 	
-	@Resource(name="jdbc/web_student_tracker")
-	private DataSource dataSource;
+	//@Resource(name="jdbc/web_student_tracker")
+	//private DataSource dataSource;
 	
 	@Override
 	public void init() throws ServletException {
@@ -30,7 +31,8 @@ public class StudentControllerServlet extends HttpServlet {
 		
 		// create our student db util ... and pass in the conn pool / datasource
 		try {
-			studentDbUtil = new StudentDbUtil(dataSource);
+			//studentDbUtil = new StudentDbUtil(dataSource);
+			studentDbUtil = new StudentDbDummy();
 		}
 		catch (Exception exc) {
 			throw new ServletException(exc);
@@ -157,7 +159,7 @@ public class StudentControllerServlet extends HttpServlet {
 		List<Student> students = studentDbUtil.getStudents();
 		
 		// add students to the request
-		request.setAttribute("STUDENT_LIST", students);
+		request.setAttribute("LISTA_ESTUDIANTES", students);
 				
 		// send to JSP page (view)
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-students.jsp");
