@@ -33,12 +33,6 @@ public class StudentControllerServlet extends HttpServlet {
 		try {
 			//studentDbUtil = new StudentDbUtil(dataSource);
 			
-//			StudentDbDummy.students.add(
-//					new Student(++StudentDbDummy.idContador, 
-//							"Rolas", 
-//							"ApellidoRolas", 
-//							"rolas@gmail.com"));
-			
 			studentDbUtil = new StudentDbDummy();
 			
 		}

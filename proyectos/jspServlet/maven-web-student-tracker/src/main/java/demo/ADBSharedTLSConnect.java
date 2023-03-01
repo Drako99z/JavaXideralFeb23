@@ -3,8 +3,6 @@ package demo;
 import java.sql.*;
 import java.util.Properties;
 
-//DEMO DE COMO CONECTARSE A LA BASE DE DATOS ORACLE AUTONOMOUS
-//NOTA: FALTA DESACTIVAR Mutual TLS (mTLS) authentication PARA QUE FUNCIONE
 public class ADBSharedTLSConnect {
 	private static String atps_tls = "(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.mx-queretaro-1.oraclecloud.com))(connect_data=(service_name=gd8c8e5be513421_dbcourse_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))";
 	private static String db_url = "jdbc:oracle:thin:@" + atps_tls;
