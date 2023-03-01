@@ -1,4 +1,4 @@
-package com.curso.v4;
+package com.curso.v5;
 
 public class Principal {
 
@@ -11,13 +11,10 @@ public class Principal {
 
 		try {
 			resultado = calculaDiv(x, y);
-		} catch (CeroException e) {
+			//MULTICATCH
+		} catch (CeroException | NegativoException| UnsupportedOperationException e) {
 			e.printStackTrace();
-		} catch (NegativoException e) {
-			e.printStackTrace();
-		} catch (UnsupportedOperationException e) {
-			e.printStackTrace();
-		}
+		} 
 		finally {
 			System.out.println("Paso por el finally");
 		}

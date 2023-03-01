@@ -19,11 +19,11 @@ import javax.sql.DataSource;
 public class StudentControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	//private StudentDbUtil studentDbUtil;
-	private StudentDbDummy studentDbUtil;
+	private StudentDbUtil studentDbUtil;
+	//private StudentDbDummy studentDbUtil;
 	
-	//@Resource(name="jdbc/web_student_tracker")
-	//private DataSource dataSource;
+	@Resource(name="jdbc/web_student_tracker")
+	private DataSource dataSource;
 	
 	@Override
 	public void init() throws ServletException {
@@ -31,9 +31,9 @@ public class StudentControllerServlet extends HttpServlet {
 		
 		// create our student db util ... and pass in the conn pool / datasource
 		try {
-			//studentDbUtil = new StudentDbUtil(dataSource);
+			studentDbUtil = new StudentDbUtil(dataSource);
 			
-			studentDbUtil = new StudentDbDummy();
+			//studentDbUtil = new StudentDbDummy();
 			
 		}
 		catch (Exception exc) {
@@ -154,8 +154,7 @@ public class StudentControllerServlet extends HttpServlet {
 		listStudents(request, response);
 	}
 
-	private void listStudents(HttpServletRequest request, HttpServletResponse response) 
-		throws Exception {
+	private void listStudents(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// get students from db util
 		List<Student> students = studentDbUtil.getStudents();

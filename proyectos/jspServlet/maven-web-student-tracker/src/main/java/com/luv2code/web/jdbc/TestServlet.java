@@ -37,20 +37,12 @@ public class TestServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/plain");
 
-		// Step 2: Get a connection to the database
-		Connection myConn = null;
-		Statement myStmt = null;
-		ResultSet myRs = null;
+		// Step 3: Create a SQL statements
+		String sql = "select * from student";
 
-		try {
-			myConn = dataSource.getConnection();
-
-			// Step 3: Create a SQL statements
-			String sql = "select * from student";
-			myStmt = myConn.createStatement();
-
-			// Step 4: Execute SQL query
-			myRs = myStmt.executeQuery(sql);
+		try(Connection myConn = dataSource.getConnection();
+			Statement myStmt = myConn.createStatement();
+			ResultSet myRs = myStmt.executeQuery(sql)) {
 
 			// Step 5: Process the result set
 			while (myRs.next()) {
@@ -59,21 +51,7 @@ public class TestServlet extends HttpServlet {
 			}
 		} catch (Exception exc) {
 			exc.printStackTrace();
-		} finally {
-			try {
-				if (myRs != null) {
-					myRs.close();
-				}
-				if (myStmt != null) {
-					myStmt.close();
-				}
-				if (myConn != null) {
-					myConn.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		} 
 	}
 
 }
