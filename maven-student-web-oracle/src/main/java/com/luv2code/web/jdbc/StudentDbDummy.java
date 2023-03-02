@@ -35,8 +35,8 @@ public class StudentDbDummy {
 	public void updateStudent(Estudiante elEstudiante) throws Exception {		
 		for (Estudiante e : students) {
 			if (e.getId() == elEstudiante.getId()) {
-				e.setFirstName(elEstudiante.getFirstName());
-				e.setLastName(elEstudiante.getLastName());
+				e.setNombre(elEstudiante.getNombre());
+				e.setApellido(elEstudiante.getApellido());
 				e.setEmail(elEstudiante.getEmail());
 			}
 		}

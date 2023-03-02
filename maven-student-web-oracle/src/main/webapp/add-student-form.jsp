@@ -26,12 +26,12 @@
 				<tbody>
 					<tr>
 						<td><label>First name:</label></td>
-						<td><input type="text" name="firstName" /></td>
+						<td><input type="text" name="nombre" /></td>
 					</tr>
 
 					<tr>
 						<td><label>Last name:</label></td>
-						<td><input type="text" name="lastName" /></td>
+						<td><input type="text" name="apellido" /></td>
 					</tr>
 
 					<tr>

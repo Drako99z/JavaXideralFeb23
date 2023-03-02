@@ -52,8 +52,8 @@
 					</c:url>
 																		
 					<tr>
-						<td> ${tempStudent.firstName} </td>
-						<td> ${tempStudent.lastName} </td>
+						<td> ${tempStudent.nombre} </td>
+						<td> ${tempStudent.apellido} </td>
 						<td> ${tempStudent.email} </td>
 						<td> 
 							<a href="${tempLink}">Update</a> 

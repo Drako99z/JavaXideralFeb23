@@ -110,8 +110,8 @@ public class StudentDbUtil {
 			
 			// set the param values for the student
 			myStmt.setInt(1, valorSeq);
-			myStmt.setString(2, theStudent.getFirstName());
-			myStmt.setString(3, theStudent.getLastName());
+			myStmt.setString(2, theStudent.getNombre());
+			myStmt.setString(3, theStudent.getApellido());
 			myStmt.setString(4, theStudent.getEmail());
 			
 			// execute sql insert
@@ -190,8 +190,8 @@ public class StudentDbUtil {
 			myStmt = myConn.prepareStatement(sql);
 			
 			// set params
-			myStmt.setString(1, theStudent.getFirstName());
-			myStmt.setString(2, theStudent.getLastName());
+			myStmt.setString(1, theStudent.getNombre());
+			myStmt.setString(2, theStudent.getApellido());
 			myStmt.setString(3, theStudent.getEmail());
 			myStmt.setInt(4, theStudent.getId());
 			

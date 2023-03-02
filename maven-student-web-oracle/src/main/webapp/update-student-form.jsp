@@ -28,14 +28,14 @@
 				<tbody>
 					<tr>
 						<td><label>First name:</label></td>
-						<td><input type="text" name="firstName" 
-								   value="${THE_STUDENT.firstName}" /></td>
+						<td><input type="text" name="nombre" 
+								   value="${THE_STUDENT.nombre}" /></td>
 					</tr>
 
 					<tr>
 						<td><label>Last name:</label></td>
-						<td><input type="text" name="lastName" 
-								   value="${THE_STUDENT.lastName}" /></td>
+						<td><input type="text" name="apellido" 
+								   value="${THE_STUDENT.apellido}" /></td>
 					</tr>
 
 					<tr>
