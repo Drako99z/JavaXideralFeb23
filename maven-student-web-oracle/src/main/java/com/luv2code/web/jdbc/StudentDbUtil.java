@@ -140,7 +140,7 @@ public class StudentDbUtil {
 			myConn = dataSource.getConnection();
 			
 			// create sql to get selected student
-			String sql = "select * from student where id=?";
+			String sql = "select * from xideraldb.alumno where id=?";
 			
 			// create prepared statement
 			myStmt = myConn.prepareStatement(sql);
@@ -153,8 +153,8 @@ public class StudentDbUtil {
 			
 			// retrieve data from result set row
 			if (myRs.next()) {
-				String firstName = myRs.getString("first_name");
-				String lastName = myRs.getString("last_name");
+				String firstName = myRs.getString("nombre");
+				String lastName = myRs.getString("apellido");
 				String email = myRs.getString("email");
 				
 				// use the studentId during construction
@@ -182,8 +182,8 @@ public class StudentDbUtil {
 			myConn = dataSource.getConnection();
 			
 			// create SQL update statement
-			String sql = "update student "
-						+ "set first_name=?, last_name=?, email=? "
+			String sql = "update xideraldb.alumno "
+						+ "set nombre=?, apellido=?, email=? "
 						+ "where id=?";
 			
 			// prepare statement
@@ -217,7 +217,7 @@ public class StudentDbUtil {
 			myConn = dataSource.getConnection();
 			
 			// create sql to delete student
-			String sql = "delete from student where id=?";
+			String sql = "delete from xideraldb.alumno where id=?";
 			
 			// prepare statement
 			myStmt = myConn.prepareStatement(sql);
