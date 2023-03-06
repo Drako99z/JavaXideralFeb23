@@ -1,11 +1,6 @@
-package com.curso.v2;
+package com.curso.v3;
 
-//NO ES NECESARIO, LO IMPORTA POR DEFAULT
-//import java.lang.Comparable;
-//import java.lang.String;
-//import java.lang.System;
-
-public class Empleado implements Comparable<Empleado> {
+public class Empleado{
 	
 	private String nombre;
 	private int edad;
@@ -47,18 +42,4 @@ public class Empleado implements Comparable<Empleado> {
 		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", sueldo=" + sueldo + "]";
 	}
 
-	//ORDENAR POR NOMBRE
-	@Override
-	public int compareTo(Empleado o) {
-		return this.nombre.compareTo(o.nombre) ;
-	}
-
-	//ORDENAR POR SUELDO
-//	@Override
-//	public int compareTo(Empleado o) {	
-//		return (int)(this.sueldo - o.sueldo);
-//	}
-	
-	
-	
 }
