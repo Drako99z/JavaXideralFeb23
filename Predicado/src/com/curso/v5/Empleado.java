@@ -1,6 +1,6 @@
-package com.curso.v3;
+package com.curso.v5;
 
-public class Empleado{
+public class Empleado  {
 	
 	private String nombre;
 	private int edad;

@@ -1,6 +1,6 @@
 package com.curso.v1;
 
-public class Empleado implements Comparable<Empleado> {
+public class Empleado  {
 	
 	private String nombre;
 	private int edad;
@@ -42,14 +42,6 @@ public class Empleado implements Comparable<Empleado> {
 		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", sueldo=" + sueldo + "]";
 	}
 
-	@Override
-	public int compareTo(Empleado o) {
-		if (this.edad > o.edad)
-			return 88;
-		else if(this.edad < o.edad)
-			return -88;
-		else
-			return 0;
-	}
+	
 	
 }

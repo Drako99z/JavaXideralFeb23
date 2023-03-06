@@ -1,4 +1,4 @@
-package com.curso.v3;
+package com.curso.v0;
 
 public class Empleado{
 	
@@ -42,6 +42,4 @@ public class Empleado{
 		return "Empleado [nombre=" + nombre + ", edad=" + edad + ", sueldo=" + sueldo + "]";
 	}
 
-	
-	
 }
