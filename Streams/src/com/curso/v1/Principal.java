@@ -1,4 +1,4 @@
-package com.curso.v0;
+package com.curso.v1;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -28,8 +28,8 @@ public class Principal {
 				listEmpleados.stream()
 				.filter(x -> x.getSalary()<400)
 				//.peek(System.out::println)
-				.peek(emp -> emp.incrementarSalario(200))
-				//.peek(System.out::println)
+				.peek(emp -> emp.setSalary(emp.getSalary()+200))
+				.peek(System.out::println)
 				.filter(z -> z.getNombre().length()>6)
 				//.peek(System.out::println)
 				.sorted(Comparator.comparing(Employee::getNombre))
