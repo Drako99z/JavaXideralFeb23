@@ -1,7 +1,9 @@
 package com.curso.v0;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Principal {
 	
@@ -21,6 +23,25 @@ public class Principal {
 		//3.Filtrar los que tengan una longitud mayor a 6 en su nombre
 		//4.Ordernar por nombre
 		//5.Obtener una lista de los nombres: List<String> nombres
+		
+		List<String> nombres =
+				listEmpleados.stream()
+				.filter(x -> x.getSalary()<400)
+				//.peek(System.out::println)
+				.peek(emp -> emp.incrementarSalario(200))
+				//.peek(System.out::println)
+				.filter(z -> z.getNombre().length()>6)
+				//.peek(System.out::println)
+				.sorted(Comparator.comparing(Employee::getNombre))
+				//.peek(System.out::println)
+				.map(y -> y.getNombre())
+				//.peek(System.out::println)
+				.collect(Collectors.toList());
+		
+		System.out.println(nombres);
+		
+		
+		
 
 	}
 

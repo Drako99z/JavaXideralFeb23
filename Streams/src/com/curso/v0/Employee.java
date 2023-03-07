@@ -40,4 +40,9 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", nombre=" + nombre + ", salary=" + salary + "]";
 	}
+	
+	public Employee incrementarSalario(double d) {
+		salary += d;
+		return this;
+	}
 }
