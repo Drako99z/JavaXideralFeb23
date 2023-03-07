@@ -3,6 +3,7 @@ package com.curso.beca.mockitoCalculadora;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -10,19 +11,23 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestCalculadoraV3 {
+public class TestSuma {
 	
 	@InjectMocks
-	Calculadora calculadora;
+	Suma suma;
 	
 	@Mock
-	CloudCalculadora cloudGoogle;
+	CloudSuma cloudGoogle;
+	
+	@Before
+	public void init() {
+		when(cloudGoogle.ejecutaCloudSuma(6,8)).thenReturn(14);
+	}
 	
 	@Test
-	public void testSumaCloud() {
-		when(cloudGoogle.sumaExterna(6.0,8.0)).thenReturn(14.0);
-		double resultado = 28.0;
-		assertEquals(resultado,calculadora.suma(6.0,8.0),0.1);
+	public void testSumaCloud() {				
+		double resSuma = 14;
+		assertEquals(resSuma,suma.ejecuta(6,8),1);
 	}
 	
 }
