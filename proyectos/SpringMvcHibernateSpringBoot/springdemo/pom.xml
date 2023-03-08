@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.luv2code</groupId>
-	<artifactId>springdemo</artifactId>
+	<artifactId>springMvcHibernateSBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springdemo</name>
 	<description>Se tomo como base el proyecto SpringMvc/Hibernate
