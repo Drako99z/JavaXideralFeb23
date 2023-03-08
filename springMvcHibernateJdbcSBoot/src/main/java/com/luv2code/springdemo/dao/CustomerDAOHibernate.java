@@ -26,6 +26,8 @@ public class CustomerDAOHibernate implements CustomerDAO {
 	@Override
 	public List<Customer> getCustomers() {
 		
+		System.out.println("PASO POR CustomerDAOHibernate");
+		
 		// get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
 

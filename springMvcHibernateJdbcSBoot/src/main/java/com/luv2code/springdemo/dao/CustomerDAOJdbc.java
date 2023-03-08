@@ -1,6 +1,7 @@
 package com.luv2code.springdemo.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,13 +17,13 @@ import com.luv2code.springdemo.entity.Customer;
 
 @Repository
 public class CustomerDAOJdbc implements CustomerDAO {
-	
+
 	@Autowired
 	DataSource dataSource;
 
 	@Override
 	public List<Customer> getCustomers() {
-		
+
 		System.out.println("PASO POR CustomerDAOJdbc");
 		List<Customer> customers = new ArrayList<>();
 
@@ -52,23 +53,68 @@ public class CustomerDAOJdbc implements CustomerDAO {
 			e.printStackTrace();
 		}
 		return customers;
-		
-		
+
 	}
 
 	@Override
 	public void saveCustomer(Customer theCustomer) {
 		
+		//if id=0 => insert
+		
+		//if id<>0 => update
+
 	}
 
 	@Override
 	public Customer getCustomer(int theId) {
-		return null;
+		Customer theCustomer = null;
+
+		try (Connection myConn = dataSource.getConnection();
+				PreparedStatement myStmt = crearStatementGetCustomer(myConn, theId);
+				ResultSet myRs = myStmt.executeQuery()) {
+
+			// retrieve data from result set row
+			if (myRs.next()) {
+				String firstName = myRs.getString("first_name");
+				String lastName = myRs.getString("last_name");
+				String email = myRs.getString("email");
+
+				// use the studentId during construction
+				theCustomer = new Customer(theId, firstName, lastName, email);
+			} else {
+				System.out.println("Could not find customer id: " + theId);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return theCustomer;
+	}
+
+	private PreparedStatement crearStatementGetCustomer(Connection myConn, int customerId) throws SQLException {
+		String sql = "select * from student where id=?";
+		PreparedStatement ps = myConn.prepareStatement(sql);
+		ps.setInt(1, customerId);
+		return ps;
 	}
 
 	@Override
 	public void deleteCustomer(int theId) {
-		
+
+		// create sql to delete student
+		String sql = "delete from customer where id=?";
+
+		try (Connection myConn = dataSource.getConnection(); 
+				PreparedStatement myStmt = myConn.prepareStatement(sql);) {
+
+			// set params
+			myStmt.setInt(1, theId);
+
+			// execute sql statement
+			myStmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
