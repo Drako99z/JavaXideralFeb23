@@ -59,9 +59,28 @@ public class CustomerDAOJdbc implements CustomerDAO {
 	@Override
 	public void saveCustomer(Customer theCustomer) {
 		
-		//if id=0 => insert
-		
-		//if id<>0 => update
+		String sql = null;
+		if(theCustomer.getId() == 0)
+			sql = "insert into customer " + "(first_name, last_name, email) " + "values (?, ?, ?)";
+		else
+			sql = "update customer " + "set first_name=?, last_name=?, email=? " + "where id=?";
+
+		try (Connection myConn = dataSource.getConnection(); 
+			PreparedStatement ps = myConn.prepareStatement(sql)) {
+
+			ps.setString(1, theCustomer.getFirstName());
+			ps.setString(2, theCustomer.getLastName());
+			ps.setString(3, theCustomer.getEmail());
+			
+			//id para where del update
+			if(theCustomer.getId() != 0)
+				ps.setInt(4, theCustomer.getId());
+
+			ps.execute();
+			
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
 
 	}
 
