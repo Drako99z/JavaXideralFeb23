@@ -3,7 +3,8 @@ package com.luv2code.web.jdbc;
 import java.io.IOException;
 import java.util.List;
 
-import javax.annotation.Resource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,15 +22,18 @@ public class StudentControllerServlet extends HttpServlet {
 
 	private StudentDbUtil studentDbUtil;
 	
-	@Resource(name="jdbc/web_student_tracker")
 	private DataSource dataSource;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		
-		// create our student db util ... and pass in the conn pool / datasource
 		try {
+			//https://www.digitalocean.com/community/tutorials/tomcat-datasource-jndi-example-java
+			Context ctx = new InitialContext(); //USO DE JNDI
+			dataSource = (DataSource) ctx.lookup("java:/comp/env/jdbc/javatechie"); //USO DE JNDI
+			System.out.println("Demo con JNDI, Datasource: "+dataSource);
+
 			studentDbUtil = new StudentDbUtil(dataSource);			
 		}
 		catch (Exception exc) {
