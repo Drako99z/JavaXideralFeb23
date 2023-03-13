@@ -58,6 +58,14 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		customerRespository.deleteById(theId);
 	}
+	
+	@Transactional
+	public Customer getCustomerByEmail(String email) {
+		
+        Customer customer = customerRespository.findByEmail(email);
+
+        return customer;
+	}
 }
 
 
