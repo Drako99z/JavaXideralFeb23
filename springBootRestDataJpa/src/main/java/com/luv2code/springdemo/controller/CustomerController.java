@@ -81,12 +81,9 @@ public class CustomerController {
 	
 	@GetMapping("/customers/email/{email}")
 	public Customer findByEmail(@PathVariable String email) {
+						
+		return customerService.getCustomerByEmail(email);
 		
-		CustomerServiceImpl csi = (CustomerServiceImpl) customerService;
-		
-		Customer tempCustomer = csi.getCustomerByEmail(email);
-		
-		return tempCustomer;
 	}
 	
 	

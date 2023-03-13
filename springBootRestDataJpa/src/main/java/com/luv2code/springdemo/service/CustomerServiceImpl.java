@@ -59,6 +59,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customerRespository.deleteById(theId);
 	}
 	
+	@Override
 	@Transactional
 	public Customer getCustomerByEmail(String email) {
 		
