@@ -6,9 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.luv2code.springdemo.entity.Customer;
 
+@Repository
 public class CustomerDAOJpa implements CustomerDAO {
 	
     // define field for entitymanager
@@ -24,7 +26,7 @@ public class CustomerDAOJpa implements CustomerDAO {
 	@Override
 	public List<Customer> getCustomers() {
 		// create a query
-        TypedQuery<Customer> theQuery = entityManager.createQuery("from Employee", Customer.class);
+        TypedQuery<Customer> theQuery = entityManager.createQuery("from Customer", Customer.class);
 
         // execute query and get result list
         List<Customer> customers = theQuery.getResultList();
@@ -48,7 +50,6 @@ public class CustomerDAOJpa implements CustomerDAO {
 	@Override
 	public void deleteCustomer(int theId) {
 		Customer theCustomer = entityManager.find(Customer.class, theId);
-        // remove employee
         entityManager.remove(theCustomer);
 		
 	}
