@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.controller;
+package com.luv2code.springdemo.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

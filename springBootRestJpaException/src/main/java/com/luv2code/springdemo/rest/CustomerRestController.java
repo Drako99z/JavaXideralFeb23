@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.controller;
+package com.luv2code.springdemo.rest;
 
 import java.util.List;
 
@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.luv2code.springdemo.entity.Customer;
+import com.luv2code.springdemo.exception.CustomerNotFoundException;
 import com.luv2code.springdemo.service.CustomerService;
 
 @RestController
-@RequestMapping("/rest")
-public class CustomerController {
+@RequestMapping("/api")
+public class CustomerRestController {
 
 	// need to inject our customer service
 	@Autowired
