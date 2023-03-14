@@ -25,12 +25,15 @@ public class JobController {
     @PostMapping("/importCustomers")
     public void importCsvToDBJob() {
     	
+    	//OBTENER LA HORA,MIN,SEG,MILSEG INICIO DEL PROCESO
     	long horaInicio = System.currentTimeMillis();
     	
+    	//LO ASIGNA LOS PARAMETROS DEL JOB
         JobParameters jobParameters = new JobParametersBuilder()
             .addLong("startAt",horaInicio).toJobParameters();
         
         try {
+        	//DISPARA EL JOB
             jobLauncher.run(job, jobParameters);
         } catch (JobExecutionAlreadyRunningException | 
         		JobRestartException | 
