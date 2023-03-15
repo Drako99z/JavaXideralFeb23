@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import org.junit.Ignore;
@@ -56,6 +57,19 @@ public class OptionalTestTwo {
 	    		.map(Optional::get)
 	    		.findFirst();
 	    
+	    assertEquals(getHello(), found);
+	}
+	
+	@Test
+	public void givenThreeOptionals_whenChaining_thenFirstNonEmptyIsReturnedAndRestNotEvaluated() {
+	    
+		Optional<String> found =
+	      Stream.<Supplier<Optional<String>>>of(this::getEmpty, this::getHello, this::getBye)
+	        .map(Supplier::get)
+	        .filter(Optional::isPresent)
+	        .map(Optional::get)
+	        .findFirst();
+
 	    assertEquals(getHello(), found);
 	}
 	
